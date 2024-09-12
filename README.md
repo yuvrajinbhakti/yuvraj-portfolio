@@ -9,3 +9,5 @@ Sketchfab -> Website that has lot of complete free 3D Models
 Download 3d model and then by  [gltf.pmnd.rs](https://gltf.pmnd.rs/) (or any online webite) convert/load the glb model to 3js scene 
 
 npm i @react-spring/three
+
+npm i @emailjs/browser
