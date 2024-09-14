@@ -11,3 +11,5 @@ Download 3d model and then by  [gltf.pmnd.rs](https://gltf.pmnd.rs/) (or any onl
 npm i @react-spring/three
 
 npm i @emailjs/browser
+
+npm i react-vertical-timeline-component
