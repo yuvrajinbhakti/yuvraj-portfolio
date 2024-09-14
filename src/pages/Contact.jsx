@@ -43,7 +43,7 @@ const Contact = () => {
           hideAlert();
 setCurrentAnimation('idle');
         setForm({name:'',email:'',message:''});
-      },[3000]);
+      },3000);
 
         
       }).catch((error)=>{
@@ -57,7 +57,7 @@ setCurrentAnimation('idle');
   };
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-container">
+    <section className="relative flex lg:flex-row flex-col max-container h-[100vh]">
       {alert.show && <Alert {...alert}/>}
 <div className='flex-1 min-w-[50%] flex flex-col'>
 <h1 className='head-text'>Get in Touch</h1>
@@ -98,7 +98,7 @@ onSubmit={handleSubmit}
   </label>
 
   <label className='text-black-500 font-semibold'>
-    Yuour Message
+    Your Message
     <textarea
     name="message"
     className='textarea'
@@ -114,7 +114,7 @@ onSubmit={handleSubmit}
   </label>
 
   <button
-  type="Submit"
+  type="submit"
   className='btn'
   disabled={isLoading}
   onFocus={handleFocus}
