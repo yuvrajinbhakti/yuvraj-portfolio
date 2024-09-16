@@ -112,6 +112,7 @@ onSubmit={handleSubmit}
     />
     
   </label>
+  
 
   <button
   type="submit"
@@ -119,6 +120,7 @@ onSubmit={handleSubmit}
   disabled={isLoading}
   onFocus={handleFocus}
   onBlur={handleBlur}
+  style={{ marginTop: '1rem' }}
   >
     {isLoading? 'Sending...' : 'Send Message' } 
   </button>

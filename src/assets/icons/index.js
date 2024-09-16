@@ -26,10 +26,24 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import golang from './golang.svg'
+import docker from './docker.svg'
+import kubernets from './kubernets.svg'
+import aws from './aws.svg'
+import realtimeCodeEditorIcon from './realtimeCodeEditorIcon.png'
+import fileSharingAppIcon from './fileSharingAppIcon.jpeg'
+import moneyzoldIcon from './moneyzoldIcon.jpeg'
+import careCarRentalIcon from './careCarRentalIcon.jpg'
+import dockerNodeAppIcon from './dockerNodeAppIcon.png'
+import codeGenieIcon from './codeGenieIcon.png'
 
 export {
+    careCarRentalIcon,
+    codeGenieIcon,
     css,
+    dockerNodeAppIcon,
     express,
+    fileSharingAppIcon,
     git,
     github,
     html,
@@ -45,15 +59,21 @@ export {
     tailwindcss,
     typescript,
     linkedin,
+    moneyzoldIcon,
     twitter,
     car,
     estate,
     pricewise,
+    realtimeCodeEditorIcon,
     snapgram,
     summiz,
     threads,
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    golang,
+    docker,
+    kubernets,
+    aws
 }
