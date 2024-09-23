@@ -33,7 +33,7 @@ const About = () => {
     },
     particles: {
       number: {
-        value: 150, // Adjust the particle count
+        value: 150,
         density: {
           enable: true,
           area: 800,
@@ -46,20 +46,20 @@ const About = () => {
         type: "circle",
       },
       opacity: {
-        value: 0.5, // Slightly more transparent
+        value: 0.5,
       },
       size: {
-        value: { min: 3, max: 6 }, // Randomized size
+        value: { min: 3, max: 6 },
         random: true,
       },
       move: {
         enable: true,
-        speed: 2, // Adjust speed for smooth movement
+        speed: 2,
         direction: "none",
         random: false,
         straight: false,
         outModes: {
-          default: "bounce", // Keep particles visible
+          default: "bounce",
         },
         attract: {
           enable: true,
@@ -117,6 +117,7 @@ const About = () => {
           Development through hands-on learning and building applications.
         </p>
       </div>
+
       <div className="py-10 flex flex-col">
         <h3 className="subhead-text">My Skills</h3>
         <div className="mt-16 flex flex-wrap gap-12">
@@ -187,6 +188,37 @@ const About = () => {
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
+        </div>
+      </div>
+
+      {/* Social Links and Resume Download */}
+      <div className="py-10 flex flex-col items-center">
+        <h3 className="subhead-text">Connect with Me</h3>
+        <div className="flex gap-6 mt-4">
+          <a
+            href="https://www.linkedin.com/in/yuvraj-singh-nain-76715921b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/yuvrajinbhakti"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            GitHub
+          </a>
+          <a
+  href="https://drive.google.com/uc?id=1DB4Z1-gKTDQ6Q1_l-BkJhRXuBo1LOs15&export=download"
+  download
+  className="text-blue-600 hover:underline"
+>
+  Download Resume
+</a>
+
         </div>
       </div>
 
