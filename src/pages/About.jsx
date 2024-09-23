@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { skills, experiences } from "../constants";
 import {
   VerticalTimeline,
@@ -6,10 +6,105 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import CTA from "../Components/CTA";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 const About = () => {
+  const [init, setInit] = useState(false);
+
+  // Initialize the particles engine
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
+  const particlesOptions = {
+    background: {
+      color: {
+        value: "#f0f4f8", // Light background color for contrast
+      },
+    },
+    particles: {
+      number: {
+        value: 150, // Adjust the particle count
+        density: {
+          enable: true,
+          area: 800,
+        },
+      },
+      color: {
+        value: "#4a90e2", // Vibrant blue color for particles
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 0.5, // Slightly more transparent
+      },
+      size: {
+        value: { min: 3, max: 6 }, // Randomized size
+        random: true,
+      },
+      move: {
+        enable: true,
+        speed: 2, // Adjust speed for smooth movement
+        direction: "none",
+        random: false,
+        straight: false,
+        outModes: {
+          default: "bounce", // Keep particles visible
+        },
+        attract: {
+          enable: true,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: {
+          enable: true,
+          mode: "repulse",
+        },
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        resize: true,
+      },
+      modes: {
+        attract: {
+          distance: 100,
+          duration: 2,
+        },
+        push: {
+          quantity: 4,
+        },
+      },
+    },
+    detectRetina: true,
+  };
+
   return (
-    <section className="max-container">
+    <section className="max-container relative">
+      {/* Particle Background */}
+      {init && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={particlesOptions}
+          className="absolute inset-0 -z-10"
+        />
+      )}
+
       <h1 className="head-text">
         Hello, I'm{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">
@@ -26,7 +121,7 @@ const About = () => {
         <h3 className="subhead-text">My Skills</h3>
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill) => (
-            <div className="block-container w-20 h-20">
+            <div className="block-container w-20 h-20" key={skill.name}>
               <div className="btn-back rounded-xl" />
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
@@ -45,7 +140,7 @@ const About = () => {
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p>
             I've worked with all sorts of companies, leveling up my skills and
-            teaming up with smart people.Here's the rundown:
+            teaming up with smart people. Here's the rundown:
           </p>
         </div>
         <div className="mt-12 flex">
@@ -56,28 +151,26 @@ const About = () => {
                 date={experience.date}
                 icon={
                   <div className="flex justify-center items-center w-full h-full">
-                    <img src={experience.icon} alt={experience.company_name}
-                    className="w-[60%] h-[60%] object-contain "
-                     />
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className="w-[60%] h-[60%] object-contain"
+                    />
                   </div>
                 }
-                iconStyle={{background:experience.iconBg}}
+                iconStyle={{ background: experience.iconBg }}
                 contentStyle={{
                   borderBottom: `8px`,
-                  borderStyle:'solid',
-                  borderBottomColor:experience.iconBg, 
+                  borderStyle: 'solid',
+                  borderBottomColor: experience.iconBg,
                   boxShadow: 'none',
                 }}
-                
               >
                 <div>
-                  <h3 className="text-black text-xl font-poppins font- semibold">
+                  <h3 className="text-black text-xl font-poppins font-semibold">
                     {experience.title}
                   </h3>
-                  <p
-                    className="text-black-500 font-medium font-base"
-                    style={{ margin: 0 }}
-                  >
+                  <p className="text-black-500 font-medium font-base" style={{ margin: 0 }}>
                     {experience.company_name}
                   </p>
                 </div>
@@ -98,7 +191,7 @@ const About = () => {
       </div>
 
       <hr className="border-slate-200" />
-      <CTA/>
+      <CTA />
     </section>
   );
 };
